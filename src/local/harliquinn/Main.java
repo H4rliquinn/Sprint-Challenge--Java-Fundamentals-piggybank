@@ -17,5 +17,7 @@ public class Main {
 
         System.out.println(bank.getBank());
         System.out.println("The piggy bank holds "+fp.format(bank.getBankValue()));
+        bank.removeDollar(3);
+        bank.removeDollar(4);
     }
 }
