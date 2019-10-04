@@ -5,7 +5,12 @@ public class PiggyBank
 {
     private ArrayList<Coin> bank = new ArrayList<>();
 
-    public String getbank()
+    public void addToBank(Coin coin)
+    {
+        bank.add(coin);
+    }
+
+    public String getBank()
     {
         String coinList="";
         for(Coin i:bank)
@@ -15,8 +20,13 @@ public class PiggyBank
         return coinList;
     }
 
-    public void addToBank(Coin coin)
+    public String getBankValue()
     {
-        bank.add(coin);
+        double coinTotal=0;
+        for(Coin i:bank)
+        {
+            coinTotal=coinTotal+i.getTotalValue();
+        }
+        return "The piggy bank holds $"+coinTotal;
     }
 }
