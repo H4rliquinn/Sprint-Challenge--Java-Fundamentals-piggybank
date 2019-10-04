@@ -1,5 +1,6 @@
 package local.harliquinn;
 import java.util.*;
+import java.lang.Math;
 
 public class PiggyBank
 {
@@ -140,9 +141,53 @@ public class PiggyBank
 
     public void removeValue(double amount)
     {
+        double currAmount=amount;
+        int coins=0;
+        boolean[] typeFlag={true,true,true,true,true};
         if (amount<=this.getBankValue())
         {
+            while(currAmount>0)
+            {
+                coins=0;
+                if (currAmount>=1&&typeFlag[0])
+                {
+                    coins=(int)Math.floor(amount/1);
+                    currAmount=currAmount-coins*1;
+                    coins=this.removeDollar(coins);
+                    currAmount=currAmount+coins*1;
+                    typeFlag[0]=false;
+                } else if(currAmount>=.25&&typeFlag[1]){
+                    coins=(int)Math.floor(amount/.25);
+                    currAmount=currAmount-coins*.25;
+                    coins=this.removeQuarter(coins);
+                    currAmount=currAmount+coins*.25;
+                    typeFlag[1]=false;
+                }else if(currAmount>=.1&&typeFlag[2]){
+                    coins=(int)Math.floor(amount/.1);
+                    currAmount=currAmount-coins*.1;
+                    coins=this.removeDime(coins);
+                    currAmount=currAmount+coins*.1;
+                    typeFlag[2]=false;
+                }else if(currAmount>=.05&&typeFlag[3]){
+                    coins=(int)Math.floor(amount/.05);
+                    currAmount=currAmount-coins*.05;
+                    coins=this.removeNickel(coins);
+                    currAmount=currAmount+coins*.05;
+                    typeFlag[3]=false;
+                }else if(currAmount>=.01&&typeFlag[4]){
+                    coins=(int)Math.floor(amount/.01);
+                    currAmount=currAmount-coins*.01;
+                    coins=this.removePenny(coins);
+                    currAmount=currAmount+coins*.01;
+                    typeFlag[4]=false;
+                }
 
+                if (currAmount>0&&!typeFlag[0]&&!typeFlag[1]&&!typeFlag[2]&&!typeFlag[3]&&!typeFlag[4])
+                {
+                    currAmount=0;
+                    System.out.println("Fail");
+                }
+            }
         }else
         {
             System.out.printf("Insufficient Funds");
