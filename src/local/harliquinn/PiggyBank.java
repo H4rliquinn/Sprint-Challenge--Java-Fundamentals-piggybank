@@ -15,7 +15,10 @@ public class PiggyBank
         String coinList="";
         for(Coin i:bank)
         {
-            coinList=coinList+i.toString()+"\n";
+            if (i.quantity>0)
+            {
+                coinList=coinList+i.toString()+"\n";
+            }
         }
         return coinList;
     }
@@ -30,7 +33,7 @@ public class PiggyBank
         return coinTotal;
     }
 
-    public void removeDollar(int quantity )
+    public int removeDollar(int quantity )
     {
         int currQuantity=quantity;
         for(Coin i:bank)
@@ -48,12 +51,101 @@ public class PiggyBank
                 }
             }
         }
-        if (currQuantity>0)
+        return currQuantity;
+    }
+
+    public int removeQuarter(int quantity )
+    {
+        int currQuantity=quantity;
+        for(Coin i:bank)
         {
-            System.out.println(quantity-currQuantity+" Dollars removed. Unable to remove "+currQuantity);
-        } else
+            if (i instanceof Quarter)
+            {
+                if (i.quantity>currQuantity)
+                {
+                    i.setQuantity(i.quantity-currQuantity);
+                    currQuantity=0;
+                    break;
+                }else{
+                    currQuantity=currQuantity-i.quantity;
+                    i.setQuantity(0);
+                }
+            }
+        }
+        return currQuantity;
+    }
+
+    public int removeDime(int quantity )
+    {
+        int currQuantity=quantity;
+        for(Coin i:bank)
         {
-            System.out.println(quantity+" Dollars removed");
+            if (i instanceof Dime)
+            {
+                if (i.quantity>currQuantity)
+                {
+                    i.setQuantity(i.quantity-currQuantity);
+                    currQuantity=0;
+                    break;
+                }else{
+                    currQuantity=currQuantity-i.quantity;
+                    i.setQuantity(0);
+                }
+            }
+        }
+        return currQuantity;
+    }
+
+    public int removeNickel(int quantity )
+    {
+        int currQuantity=quantity;
+        for(Coin i:bank)
+        {
+            if (i instanceof Nickel)
+            {
+                if (i.quantity>currQuantity)
+                {
+                    i.setQuantity(i.quantity-currQuantity);
+                    currQuantity=0;
+                    break;
+                }else{
+                    currQuantity=currQuantity-i.quantity;
+                    i.setQuantity(0);
+                }
+            }
+        }
+        return currQuantity;
+    }
+
+    public int removePenny(int quantity )
+    {
+        int currQuantity=quantity;
+        for(Coin i:bank)
+        {
+            if (i instanceof Penny)
+            {
+                if (i.quantity>currQuantity)
+                {
+                    i.setQuantity(i.quantity-currQuantity);
+                    currQuantity=0;
+                    break;
+                }else{
+                    currQuantity=currQuantity-i.quantity;
+                    i.setQuantity(0);
+                }
+            }
+        }
+        return currQuantity;
+    }
+
+    public void removeValue(double amount)
+    {
+        if (amount<=this.getBankValue())
+        {
+
+        }else
+        {
+            System.out.printf("Insufficient Funds");
         }
     }
 }
