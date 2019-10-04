@@ -8,5 +8,11 @@ public class Quarter extends Coin
         value=.25;
         totalValue = quantity*value;
     }
+    public Quarter()
+    {
+        quantity=1;
+        value=.25;
+        totalValue = quantity*value;
+    }
 }
 

@@ -8,4 +8,10 @@ public class Dime extends Coin
         value=.1;
         totalValue = quantity*value;
     }
+    public Dime()
+    {
+        quantity=1;
+        value=.1;
+        totalValue = quantity*value;
+    }
 }

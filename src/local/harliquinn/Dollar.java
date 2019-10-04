@@ -9,6 +9,13 @@ public class Dollar extends Coin
         totalValue = quantity*value;
     }
 
+    public Dollar()
+    {
+        quantity=1;
+        value=1;
+        totalValue = quantity*value;
+    }
+
     @Override
     public String toString()
     {

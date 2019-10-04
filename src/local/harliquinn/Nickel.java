@@ -8,4 +8,10 @@ public class Nickel extends Coin
         value=.05;
         totalValue = quantity*value;
     }
+    public Nickel()
+    {
+        quantity=1;
+        value=.05;
+        totalValue = quantity*value;
+    }
 }
