@@ -20,13 +20,13 @@ public class PiggyBank
         return coinList;
     }
 
-    public String getBankValue()
+    public double getBankValue()
     {
         double coinTotal=0;
         for(Coin i:bank)
         {
             coinTotal=coinTotal+i.getTotalValue();
         }
-        return "The piggy bank holds $"+coinTotal;
+        return coinTotal;
     }
 }

@@ -1,8 +1,10 @@
 package local.harliquinn;
+import java.text.DecimalFormat;
 
 public class Main {
 
     public static void main(String[] args) {
+        DecimalFormat fp = new DecimalFormat("$###,###.00");
         PiggyBank bank=new PiggyBank();
 
         bank.addToBank(new Quarter());
@@ -14,6 +16,6 @@ public class Main {
         bank.addToBank(new Penny(10));
 
         System.out.println(bank.getBank());
-        System.out.println(bank.getBankValue());
+        System.out.println("The piggy bank holds "+fp.format(bank.getBankValue()));
     }
 }
