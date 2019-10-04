@@ -2,6 +2,7 @@ package local.harliquinn;
 import java.util.*;
 import java.lang.Math;
 
+
 public class PiggyBank
 {
     private ArrayList<Coin> bank = new ArrayList<>();
@@ -151,38 +152,47 @@ public class PiggyBank
                 coins=0;
                 if (currAmount>=1&&typeFlag[0])
                 {
-                    coins=(int)Math.floor(amount/1);
+                    coins=(int)Math.floor(currAmount/1);
                     currAmount=currAmount-coins*1;
                     coins=this.removeDollar(coins);
                     currAmount=currAmount+coins*1;
                     typeFlag[0]=false;
+//                    System.out.println("Curr$: "+currAmount);
                 } else if(currAmount>=.25&&typeFlag[1]){
-                    coins=(int)Math.floor(amount/.25);
+                    coins=(int)Math.floor(currAmount/.25);
                     currAmount=currAmount-coins*.25;
                     coins=this.removeQuarter(coins);
                     currAmount=currAmount+coins*.25;
                     typeFlag[1]=false;
+//                    System.out.println("CurrQ: "+currAmount);
                 }else if(currAmount>=.1&&typeFlag[2]){
-                    coins=(int)Math.floor(amount/.1);
-                    currAmount=currAmount-coins*.1;
+                    coins=(int)Math.floor(currAmount/.1);
+//                    currAmount=currAmount-(coins*.1);//Double operation is off
+                    currAmount=currAmount-.2;
                     coins=this.removeDime(coins);
                     currAmount=currAmount+coins*.1;
                     typeFlag[2]=false;
+//                    System.out.println("CurrD: "+currAmount);
                 }else if(currAmount>=.05&&typeFlag[3]){
-                    coins=(int)Math.floor(amount/.05);
-                    currAmount=currAmount-coins*.05;
+                    System.out.println("Nickels: "+currAmount);
+                    coins=(int)Math.floor(currAmount/.05);
+                    System.out.println("coins: "+coins);
+//                    currAmount=currAmount-coins*.05;//Double division if off
+                    currAmount=currAmount-.05;
                     coins=this.removeNickel(coins);
                     currAmount=currAmount+coins*.05;
                     typeFlag[3]=false;
+//                    System.out.println("CurrN: "+currAmount);
                 }else if(currAmount>=.01&&typeFlag[4]){
-                    coins=(int)Math.floor(amount/.01);
+                    coins=(int)Math.floor(currAmount/.01);
                     currAmount=currAmount-coins*.01;
                     coins=this.removePenny(coins);
                     currAmount=currAmount+coins*.01;
                     typeFlag[4]=false;
+//                    System.out.println("CurrP: "+currAmount);
                 }
 
-                if (currAmount>0&&!typeFlag[0]&&!typeFlag[1]&&!typeFlag[2]&&!typeFlag[3]&&!typeFlag[4])
+                if ((currAmount>0&&!typeFlag[0]&&!typeFlag[1]&&!typeFlag[2]&&!typeFlag[3]&&!typeFlag[4])||(currAmount<.01))
                 {
                     currAmount=0;
                     System.out.println("Fail");

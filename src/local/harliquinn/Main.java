@@ -19,7 +19,8 @@ public class Main {
         System.out.println("The piggy bank holds "+fp.format(bank.getBankValue()));
 //        bank.removeDollar(3);
 //        bank.removeDollar(4);
-        bank.removeValue(3.5);
+        bank.removeValue(1.5);
         System.out.println("The piggy bank now holds "+fp.format(bank.getBankValue()));
+        System.out.println(bank.getBank());
     }
 }
