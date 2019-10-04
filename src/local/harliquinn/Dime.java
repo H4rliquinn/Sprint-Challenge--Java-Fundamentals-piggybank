@@ -14,4 +14,9 @@ public class Dime extends Coin
         value=.1;
         totalValue = quantity*value;
     }
+    @Override
+    public String toString()
+    {
+        return quantity+" Dime"+((quantity>1)?"s":"");
+    }
 }

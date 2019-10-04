@@ -14,5 +14,10 @@ public class Quarter extends Coin
         value=.25;
         totalValue = quantity*value;
     }
+    @Override
+    public String toString()
+    {
+        return quantity+" Quarter"+((quantity>1)?"s":"");
+    }
 }
 

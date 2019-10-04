@@ -19,10 +19,6 @@ public class Dollar extends Coin
     @Override
     public String toString()
     {
-        return "Dollar{" +
-                "value=" + value +
-                ", quantity=" + quantity +
-                ", totalValue=" + totalValue +
-                '}';
+        return "$"+quantity+".00";
     }
 }

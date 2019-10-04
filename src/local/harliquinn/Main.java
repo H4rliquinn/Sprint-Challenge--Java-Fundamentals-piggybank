@@ -13,8 +13,6 @@ public class Main {
         bank.addToBank(new Dollar());
         bank.addToBank(new Penny(10));
 
-
-
         System.out.println(bank.getbank());
     }
 }

@@ -5,9 +5,14 @@ public class PiggyBank
 {
     private ArrayList<Coin> bank = new ArrayList<>();
 
-    public int getbank()
+    public String getbank()
     {
-        return bank.size();
+        String coinList="";
+        for(Coin i:bank)
+        {
+            coinList=coinList+i.toString()+"\n";
+        }
+        return coinList;
     }
 
     public void addToBank(Coin coin)

@@ -14,4 +14,9 @@ public class Nickel extends Coin
         value=.05;
         totalValue = quantity*value;
     }
+    @Override
+    public String toString()
+    {
+        return quantity+" Nickel"+((quantity>1)?"s":"");
+    }
 }

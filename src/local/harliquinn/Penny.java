@@ -14,4 +14,9 @@ public class Penny extends Coin
         value=.01;
         totalValue = quantity*value;
     }
+    @Override
+    public String toString()
+    {
+        return quantity+((quantity>1)?" Pennies":" Penny");
+    }
 }
